@@ -6,12 +6,14 @@ import Homepage from './pages/homepage/Homepage';
 import ToolsPage from './pages/tools/ToolsPage';
 import UsersPage from './pages/users/UsersPage';
 import Header from './components/header/Header';
+import Sidebar from './components/sidebar/Sidebar';
 
 function App() {
   return (
     <div className="app">
+      <Header />
       <main className="content">
-        <Header />
+        <Sidebar />
         <Routes>
           <Route path={homePath} element={<Homepage />} />
           <Route path={usersPath} element={<UsersPage />} />

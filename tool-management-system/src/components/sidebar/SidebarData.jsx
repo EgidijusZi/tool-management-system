@@ -1,4 +1,4 @@
-import { homePath, usersPath, toolsPath, aircraftsPath } from './constants/routes';
+import { homePath, usersPath, toolsPath, aircraftsPath } from '../../constants/routes';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
 import BuildIcon from '@mui/icons-material/Build';
