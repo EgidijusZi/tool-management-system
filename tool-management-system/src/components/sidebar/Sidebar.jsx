@@ -20,7 +20,7 @@ const Sidebar = () => {
         <Menu>
           {sidebarData.map((menuRow) => {
             return (
-              <MenuItem onClick={() => {handleClick(menuRow)}}active={selectedMenuItem === menuRow.title} icon={menuRow.icon}>
+              <MenuItem onClick={() => {handleClick(menuRow)}} active={selectedMenuItem === menuRow.title} icon={menuRow.icon}>
                 {menuRow.title}
               </MenuItem>
             );
