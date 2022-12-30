@@ -6,4 +6,3 @@ public interface IAircraftService
     IEnumerable<AircraftResponseDto> GetAll();
 }
 
-

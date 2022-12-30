@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using ToolManagementSystem.Core.Interfaces;
+using ToolManagementSystem.Core.Services;
 using ToolManagementSystem.Infrastructure.Data;
+using ToolManagementSystem.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,10 @@ builder.Services.AddDbContext<ToolStoreDbContext>(options =>
     options.UseSqlite("Data Source=ToolStoreDatabase.db")
         .UseLazyLoadingProxies();
 });
+
+builder.Services.AddScoped<IAircraftService, AircraftService>();
+builder.Services.AddScoped<IAircraftRepository, AircraftRepository>();
+
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
