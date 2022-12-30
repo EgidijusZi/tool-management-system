@@ -1,7 +1,8 @@
-﻿namespace ToolManagementSystem.Core.Interfaces
+﻿using ToolManagementSystem.Domain.Entities;
 
-{
-    public interface IAircraftRepository
+namespace ToolManagementSystem.Core.Interfaces;
+
+public interface IAircraftRepository
     {
+        IEnumerable<Aircraft> GetAll();
     }
-}

@@ -4,9 +4,9 @@ using ToolManagementSystem.Domain.Entities;
 
 namespace ToolManagementSystem.Core.Mapping;
 
-public class AircraftMapping : Profile
+public class AircraftMappingProfile : Profile
 {
-    public AircraftMapping()
+    public AircraftMappingProfile()
     {
         CreateMap<Aircraft, AircraftResponseDto>();
     }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ToolManagementSystem.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ToolStoreDbContext>(options =>
 {
-
+    options.UseSqlite("Data Source=ToolStoreDatabase.db")
+        .UseLazyLoadingProxies();
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -1,10 +1,9 @@
 ﻿using ToolManagementSystem.Core.Responses;
 
-namespace ToolManagementSystem.Core.Interfaces
+namespace ToolManagementSystem.Core.Interfaces;
+public interface IAircraftService
 {
-    public interface IAircraftService
-    {
-        IEnumerable<AircraftResponseDto> GetAll();
-    }
+    IEnumerable<AircraftResponseDto> GetAll();
 }
+
 

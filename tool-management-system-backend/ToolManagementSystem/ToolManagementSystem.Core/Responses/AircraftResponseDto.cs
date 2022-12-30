@@ -1,12 +1,9 @@
-﻿
+﻿namespace ToolManagementSystem.Core.Responses;
 
-namespace ToolManagementSystem.Core.Responses
+public class AircraftResponseDto
 {
-    public class AircraftResponseDto
-    {
-        Guid Id;
-        string AircraftRegistration;
-        string EngineType;
-        int ManufacturerSerialNumber;
-    }
+    public Guid Id { get; set; }
+    public string AircraftRegistration { get; set; }
+    public string EngineType { get; set; }
+    public int ManufacturerSerialNumber { get; set; }
 }
