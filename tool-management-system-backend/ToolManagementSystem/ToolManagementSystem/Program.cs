@@ -21,6 +21,8 @@ builder.Services.AddDbContext<ToolStoreDbContext>(options =>
 
 builder.Services.AddScoped<IAircraftService, AircraftService>();
 builder.Services.AddScoped<IAircraftRepository, AircraftRepository>();
+builder.Services.AddScoped<IToolboxRepository, ToolboxRepository>();
+builder.Services.AddScoped<IToolboxService, ToolboxService>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
