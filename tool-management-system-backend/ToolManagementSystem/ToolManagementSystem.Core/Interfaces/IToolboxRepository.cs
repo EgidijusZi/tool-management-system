@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ToolManagementSystem.Domain.Entities;
 
-namespace ToolManagementSystem.Core.Interfaces
+namespace ToolManagementSystem.Core.Interfaces;
+
+public interface IToolboxRepository
 {
-    internal interface IToolboxRepository
-    {
-    }
+    IEnumerable<Toolbox> GetAll();
 }

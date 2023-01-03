@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToolManagementSystem.Domain.Entities
+namespace ToolManagementSystem.Domain.Entities;
+
+public class Toolbox
 {
-    internal class Toolbox
-    {
-    }
+    [Key]
+    public Guid id { get; set; }
+    public string ToolboxMarking { get; set; }
+    public string Owner { get; set; }
 }

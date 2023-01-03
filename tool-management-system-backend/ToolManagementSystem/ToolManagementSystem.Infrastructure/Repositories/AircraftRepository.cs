@@ -1,5 +1,4 @@
-﻿
-using ToolManagementSystem.Core.Interfaces;
+﻿using ToolManagementSystem.Core.Interfaces;
 using ToolManagementSystem.Domain.Entities;
 using ToolManagementSystem.Infrastructure.Data;
 
