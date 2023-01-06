@@ -71,7 +71,7 @@ namespace ToolManagementSystem.Core.Services
             return response;
         }
 
-        public UserResponseDto Update(Guid id, UpdateRequestDto request)
+        public UserResponseDto Update(Guid id, UserUpdateRequestDto request)
         {
             var user = _userRepository.GetById(id);
             if (user is null)

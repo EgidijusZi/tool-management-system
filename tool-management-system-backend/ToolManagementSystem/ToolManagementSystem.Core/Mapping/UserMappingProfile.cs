@@ -11,7 +11,7 @@ namespace ToolManagementSystem.Core.Mapping
         {
             CreateMap<User, AuthenticateResponseDto>();
             CreateMap<RegisterRequestDto, User>();
-            CreateMap<UpdateRequestDto, User>();
+            CreateMap<UserUpdateRequestDto, User>();
             CreateMap<User, UserResponseDto>();
         }
     }

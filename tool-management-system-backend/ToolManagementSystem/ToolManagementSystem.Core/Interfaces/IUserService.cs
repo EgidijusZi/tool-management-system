@@ -12,7 +12,7 @@ namespace ToolManagementSystem.Core.Interfaces
 
         UserResponseDto Register(RegisterRequestDto request);
 
-        UserResponseDto Update(Guid id, UpdateRequestDto request);
+        UserResponseDto Update(Guid id, UserUpdateRequestDto request);
 
         void Delete(Guid id);
     }

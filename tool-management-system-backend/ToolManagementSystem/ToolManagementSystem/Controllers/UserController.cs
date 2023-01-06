@@ -48,7 +48,7 @@ namespace ToolManagementSystem.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, UpdateRequestDto request)
+        public IActionResult Update(Guid id, UserUpdateRequestDto request)
         {
             _userService.Update(id, request);
             return Ok(new { message = "User updated successfully" });

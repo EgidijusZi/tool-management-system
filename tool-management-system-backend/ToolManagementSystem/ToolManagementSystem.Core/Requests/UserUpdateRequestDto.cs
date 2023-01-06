@@ -1,6 +1,6 @@
 ﻿namespace ToolManagementSystem.Core.Requests
 {
-    public class UpdateRequestDto
+    public class UserUpdateRequestDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
