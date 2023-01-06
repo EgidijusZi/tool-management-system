@@ -4,7 +4,7 @@ namespace ToolManagementSystem.Api.Controllers;
 
 
 
-[Route("api/[controller]")]
+[Route("Api/[controller]")]
 [ApiController]
 
 public class BaseController : ControllerBase

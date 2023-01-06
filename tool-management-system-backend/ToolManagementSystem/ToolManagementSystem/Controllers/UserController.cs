@@ -16,14 +16,14 @@ namespace ToolManagementSystem.Api.Controllers
             _userService = userService;
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("Authenticate")]
         public IActionResult Authenticate(AuthenticateRequestDto request)
         {
             var response = _userService.Authenticate(request);
             return Ok(response);
         }
 
-        [HttpPost("register")]
+        [HttpPost("Register")]
         public IActionResult Register(UserRegisterRequestDto request)
         {
             _userService.Register(request);
