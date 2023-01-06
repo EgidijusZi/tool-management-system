@@ -10,13 +10,10 @@ namespace ToolManagementSystem.Api.Controllers
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
-        private readonly IMapper _mapper;
-        private readonly AppSettings _appSettings;
-        public UserController(IUserService userService, IMapper mapper, IOptions<AppSettings> appSettings) 
+
+        public UserController(IUserService userService) 
         {
             _userService = userService;
-            _mapper = mapper;
-            _appSettings = appSettings.Value;
         }
 
         [HttpPost("authenticate")]
@@ -27,10 +24,10 @@ namespace ToolManagementSystem.Api.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterRequestDto request)
+        public IActionResult Register(UserRegisterRequestDto request)
         {
             _userService.Register(request);
-            return Ok(new { message = "Registration successsful" });
+            return Ok(new { message = "Registration successful" });
         }
 
         [HttpGet]

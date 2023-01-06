@@ -56,7 +56,7 @@ namespace ToolManagementSystem.Core.Services
             return response;
         }
 
-        public UserResponseDto Register(RegisterRequestDto request)
+        public UserResponseDto Register(UserRegisterRequestDto request)
         {
             var emailExists = _userRepository.FindByEmail(request.Email);
             if (emailExists != null)
@@ -71,6 +71,7 @@ namespace ToolManagementSystem.Core.Services
             return response;
         }
 
+        //Only for password change..? Note for myself. // No reason to change any data else for employee/user // Old + new passwords, compare old password with current and then update it.
         public UserResponseDto Update(Guid id, UserUpdateRequestDto request)
         {
             var user = _userRepository.GetById(id);

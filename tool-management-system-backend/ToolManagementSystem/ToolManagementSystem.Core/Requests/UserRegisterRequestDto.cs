@@ -1,6 +1,6 @@
 ﻿namespace ToolManagementSystem.Core.Requests
 {
-    public class RegisterRequestDto
+    public class UserRegisterRequestDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

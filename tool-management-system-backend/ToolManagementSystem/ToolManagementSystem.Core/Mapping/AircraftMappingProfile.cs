@@ -8,6 +8,7 @@ public class AircraftMappingProfile : Profile
 {
     public AircraftMappingProfile()
     {
+        CreateMap<AircraftResponseDto, Aircraft>();
         CreateMap<Aircraft, AircraftResponseDto>();
     }
 }

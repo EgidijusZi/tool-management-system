@@ -10,7 +10,7 @@ namespace ToolManagementSystem.Core.Interfaces
 
         IEnumerable<UserResponseDto> GetAll();
 
-        UserResponseDto Register(RegisterRequestDto request);
+        UserResponseDto Register(UserRegisterRequestDto request);
 
         UserResponseDto Update(Guid id, UserUpdateRequestDto request);
 

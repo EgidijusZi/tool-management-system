@@ -10,7 +10,7 @@ namespace ToolManagementSystem.Core.Mapping
         public UserMappingProfile() 
         {
             CreateMap<User, AuthenticateResponseDto>();
-            CreateMap<RegisterRequestDto, User>();
+            CreateMap<UserRegisterRequestDto, User>();
             CreateMap<UserUpdateRequestDto, User>();
             CreateMap<User, UserResponseDto>();
         }

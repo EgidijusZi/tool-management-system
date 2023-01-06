@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ToolManagementSystem.Core.Requests;
 using ToolManagementSystem.Core.Responses;
 using ToolManagementSystem.Domain.Entities;
 
@@ -9,5 +10,6 @@ public class ToolboxMappingProfile : Profile
     public ToolboxMappingProfile()
     {
         CreateMap<Toolbox, ToolboxResponseDto>();
+        CreateMap<ToolboxRequestDto, Toolbox>();
     }
 }
