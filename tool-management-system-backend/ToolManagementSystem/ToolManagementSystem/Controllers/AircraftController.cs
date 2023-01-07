@@ -26,21 +26,21 @@ public class AircraftController : BaseController
         return Ok(aircrafts);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:guid}")]
     public IActionResult GetById(Guid id)
     {
         var aircraft = _aircraftService.GetById(id);
         return Ok(aircraft);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:guid}")]
     public IActionResult Update(Guid id, AircraftRequestDto request)
     {
         _aircraftService.Update(id, request);
         return Ok(new { message = "Aircraft updated successfully" });
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         _aircraftService.Delete(id);

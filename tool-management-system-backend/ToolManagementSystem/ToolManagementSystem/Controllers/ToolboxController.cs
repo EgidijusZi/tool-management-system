@@ -26,21 +26,21 @@ namespace ToolManagementSystem.Api.Controllers
             return Ok(toolboxes);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public IActionResult GetById(Guid id)
         {
             var toolbox = _toolboxService.GetById(id);
             return Ok(toolbox);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:guid}")]
         public IActionResult Update(Guid id, ToolboxRequestDto request)
         {
             _toolboxService.Update(id, request);
             return Ok(new { message = "Toolbox updated successfully" });
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         public IActionResult Delete(Guid id)
         {
             _toolboxService.Delete(id);

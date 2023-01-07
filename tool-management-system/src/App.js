@@ -7,13 +7,13 @@ import {
   aircraftsPath,
   toolboxesPath
 } from './constants/routes';
-import AircraftsPage from './pages/aircrafts/AircraftsPage';
 import Homepage from './pages/homepage/Homepage';
 import ToolsPage from './pages/tools/ToolsPage';
 import UsersPage from './pages/users/UsersPage';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
-import ToolboxesPage from './pages/toolboxes/ToolboxesPage';
+import { toolboxColumns, aircraftColumns } from './components/table/PageColumns';
+import TablePage from './pages/tablePage/TablePage';
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
           <Route path={homePath} element={<Homepage />} />
           <Route path={usersPath} element={<UsersPage />} />
           <Route path={toolsPath} element={<ToolsPage />} />
-          <Route path={aircraftsPath} element={<AircraftsPage />} />
-          <Route path={toolboxesPath} element={<ToolboxesPage />} />
+          <Route key={'dakjfdsahjfgaofaokhjdfa'} path={aircraftsPath} element={<TablePage columns={aircraftColumns} apiBasePath={'Aircraft'} />} />
+          <Route key={'dasjdskafjajfgafka'} path={toolboxesPath} element={<TablePage columns={toolboxColumns} apiBasePath={'Toolbox'} />} />
         </Routes>
       </main>
     </div>

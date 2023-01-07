@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ToolManagementSystem.Core.Requests;
 using ToolManagementSystem.Core.Responses;
 using ToolManagementSystem.Domain.Entities;
 
@@ -8,7 +9,7 @@ public class AircraftMappingProfile : Profile
 {
     public AircraftMappingProfile()
     {
-        CreateMap<AircraftResponseDto, Aircraft>();
+        CreateMap<AircraftRequestDto, Aircraft>();
         CreateMap<Aircraft, AircraftResponseDto>();
     }
 }

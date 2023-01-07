@@ -37,21 +37,21 @@ namespace ToolManagementSystem.Api.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:guid}")]
         public IActionResult GetById(Guid id)
         {
             var user = _userService.GetById(id);
             return Ok(user);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:guid}")]
         public IActionResult Update(Guid id, UserUpdateRequestDto request)
         {
             _userService.Update(id, request);
             return Ok(new { message = "User updated successfully" });
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         public IActionResult Delete(Guid id)
         {
             _userService.Delete(id);

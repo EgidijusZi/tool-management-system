@@ -1,8 +1,9 @@
-import { homePath, usersPath, toolsPath, aircraftsPath } from '../../constants/routes';
+import { homePath, usersPath, toolsPath, aircraftsPath, toolboxesPath } from '../../constants/routes';
 import HomeIcon from '@mui/icons-material/Home';
 import GroupIcon from '@mui/icons-material/Group';
 import BuildIcon from '@mui/icons-material/Build';
 import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 
 export const sidebarData = [
     {
@@ -21,8 +22,13 @@ export const sidebarData = [
         link: {toolsPath}
     },
     {
+        title: 'Toolboxes',
+        icon: <HomeRepairServiceIcon/>,
+        link: {toolboxesPath}
+    },
+    {
         title: 'Aircrafts',
         icon: <LocalAirportIcon />,
         link: {aircraftsPath}
-    }
+    },
 ]
