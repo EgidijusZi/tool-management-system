@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ToolManagementSystem.Domain.Entities;
+﻿namespace ToolManagementSystem.Domain.Entities;
 
 public class Toolbox
 {
