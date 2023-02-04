@@ -25,8 +25,8 @@ function App() {
           <Route path={homePath} element={<Homepage />} />
           <Route path={usersPath} element={<UsersPage />} />
           <Route path={toolsPath} element={<ToolsPage />} />
-          <Route key={'dakjfdsahjfgaofaokhjdfa'} path={aircraftsPath} element={<TablePage columns={aircraftColumns} apiBasePath={'Aircraft'} />} />
-          <Route key={'dasjdskafjajfgafka'} path={toolboxesPath} element={<TablePage columns={toolboxColumns} apiBasePath={'Toolbox'} />} />
+          <Route path={aircraftsPath} element={<TablePage columns={aircraftColumns} apiBasePath={'Aircraft'} />} />
+          <Route path={toolboxesPath} element={<TablePage columns={toolboxColumns} apiBasePath={'Toolbox'} />} />
         </Routes>
       </main>
     </div>

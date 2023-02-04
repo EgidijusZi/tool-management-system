@@ -12,13 +12,13 @@ export const actions = [
     }
 ]
 
-export const setActionHandlers = (actions, functionArray) => {
-    if (functionArray.length !== actions.length) {
-        console.error("Wrong actions handler list length");
+export const setActionHandlers = (actions, arrayOfHandlers) => {
+    if (arrayOfHandlers.length !== actions.length) {
+        console.error("Wrong action handlers array length");
         return;
     }
     const newActions = actions.map((action, index) => {
-        return ({...action, eventHandler: functionArray[index]})
+        return ({...action, eventHandler: arrayOfHandlers[index]})
     });
     return newActions
 }

@@ -49,17 +49,25 @@ export const BasicTable = ({ columns, rows, actions }) => {
                     {columns.map((column) => {
                       const value = row[column.id];
                       if (column.id === 'actions') {
-                        return(<TableCell>
-                            {actions.map(action => {
-                                return (<Button onClick={() => action.eventHandler(row)}>{action.icon}</Button>);
+                        return (
+                          <TableCell key={column.id + column.label}>
+                            {actions.map((action) => {
+                              return (
+                                <Button key={action.title}
+                                  onClick={() => action.eventHandler(row)}
+                                >
+                                  {action.icon}
+                                </Button>
+                              );
                             })}
-                        </TableCell>)
+                          </TableCell>
+                        );
                       } else {
                         return (
-                            <TableCell key={column.id} align={'left'}>
-                              {value}
-                            </TableCell>
-                          );
+                          <TableCell key={column.id + column.label} align={'left'}>
+                            {value}
+                          </TableCell>
+                        );
                       }
                     })}
                   </TableRow>

@@ -6,9 +6,8 @@ export const aircraftColumns = [
 ];
 
 export const toolboxColumns = [
-    { id: 'aircraftRegistration', label: 'Aircraft Registration' },
-    { id: 'engineType', label: 'Engine Type' },
-    { id: 'manufacturerSerialNumber', label: 'MSN' },
-    { id: 'actions', label: 'Actions' },
+    { id: 'toolboxMarking', label: 'Toolbox Marking' },
+    { id: 'owner', label: 'Owner' },
+    { id: 'actions', label: 'Actions'},
   ];
   
