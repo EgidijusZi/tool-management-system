@@ -1,4 +1,6 @@
-﻿namespace ToolManagementSystem.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ToolManagementSystem.Domain.Entities;
 
 public class Toolbox
 {

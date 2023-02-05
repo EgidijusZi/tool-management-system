@@ -80,6 +80,7 @@ namespace ToolManagementSystem.Core.Services
                 throw new AppException("User with provided id does not exist");
             }
             var userUpdateRequest = _mapper.Map<User>(request);
+            userUpdateRequest.Id = id;
             var updatedUser = _userRepository.Update(userUpdateRequest);
             var response = _mapper.Map<UserResponseDto>(updatedUser);
 

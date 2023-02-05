@@ -57,7 +57,9 @@ public class ToolboxService : IToolboxService
         }
 
         var toolboxUpdateRequest = _mapper.Map<Toolbox>(request);
+        toolboxUpdateRequest.Id = id;
         var updatedToolbox = _toolboxRepository.Update(toolboxUpdateRequest);
+
         var response = _mapper.Map<ToolboxResponseDto>(updatedToolbox);
 
         return response;

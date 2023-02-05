@@ -57,6 +57,7 @@ public class AircraftService : IAircraftService
         }
 
         var aircraftUpdateRequest = _mapper.Map<Aircraft>(request);
+        aircraftUpdateRequest.Id = id;
         var updatedAircraft = _aircraftRepository.Update(aircraftUpdateRequest);
         var response = _mapper.Map<AircraftResponseDto>(updatedAircraft);
 
