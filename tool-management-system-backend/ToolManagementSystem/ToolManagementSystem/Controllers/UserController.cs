@@ -1,12 +1,11 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using ToolManagementSystem.Core.Helpers;
+﻿using Microsoft.AspNetCore.Mvc;
+using ToolManagementSystem.Core.Authorization;
 using ToolManagementSystem.Core.Interfaces;
 using ToolManagementSystem.Core.Requests;
 
 namespace ToolManagementSystem.Api.Controllers
 {
+    [Authorize]
     public class UserController : BaseController
     {
         private readonly IUserService _userService;
@@ -16,6 +15,7 @@ namespace ToolManagementSystem.Api.Controllers
             _userService = userService;
         }
 
+        [AllowAnonymous]
         [HttpPost("Authenticate")]
         public IActionResult Authenticate(AuthenticateRequestDto request)
         {
@@ -23,6 +23,7 @@ namespace ToolManagementSystem.Api.Controllers
             return Ok(response);
         }
 
+        [AllowAnonymous]
         [HttpPost("Register")]
         public IActionResult Register(UserRegisterRequestDto request)
         {

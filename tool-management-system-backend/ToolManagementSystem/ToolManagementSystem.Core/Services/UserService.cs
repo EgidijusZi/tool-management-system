@@ -30,9 +30,11 @@ namespace ToolManagementSystem.Core.Services
                 throw new AppException("Email or password is incorrect");
             }
 
-            var response = _mapper.Map<AuthenticateResponseDto>(user);
-            response.Token = _jwtUtils.GenerateToken(user);
-            return response;
+            //var response = _mapper.Map<AuthenticateResponseDto>(user);
+            //response.Token = _jwtUtils.GenerateToken(user);
+            var jwtToken = _jwtUtils.GenerateToken(user);
+
+            return new AuthenticateResponseDto(user, jwtToken);
         }
 
         public void Delete(Guid id)

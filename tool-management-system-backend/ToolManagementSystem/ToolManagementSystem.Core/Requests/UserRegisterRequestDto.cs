@@ -1,11 +1,20 @@
-﻿namespace ToolManagementSystem.Core.Requests
+﻿using System.ComponentModel.DataAnnotations;
+using ToolManagementSystem.Domain.Entities;
+
+namespace ToolManagementSystem.Core.Requests
 {
     public class UserRegisterRequestDto
     {
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string ThreeLetterCode { get; set; }
-        public string Email { get; set; }   
+        [Required]
+        public string Email { get; set; }
+        [Required]
         public string Password { get; set; }
+        public Role Role { get; set; }
     }
 }
