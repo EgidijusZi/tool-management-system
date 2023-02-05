@@ -6,7 +6,7 @@ import {
   setActionHandlers,
 } from '../../components/table/Actions';
 import { BasicTable } from '../../components/table/BasicTable';
-import CreationForm from '../../components/form/CreationForm';
+import BasicForm from '../../components/form/BasicForm';
 import { Box, Button } from '@mui/material';
 
 const TablePage = ({ columns, apiBasePath }) => {
@@ -14,6 +14,11 @@ const TablePage = ({ columns, apiBasePath }) => {
 
   const [rows, setRows] = useState([]);
   const [open, setOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState({})
+
+  const columnsToRemove = ['Actions', 'Used By', 'Actions With Tool'];
+
+  const filteredColumns = columns.filter(column => !columnsToRemove.includes(column.label))
 
   const fetchData = async () => {
     const response = await tablePageApiService.fetchAll();
@@ -29,20 +34,28 @@ const TablePage = ({ columns, apiBasePath }) => {
     fetchData();
   };
 
-  const handleOpen = () => {
+  const handleOpen = (row) => {
+    setSelectedRow(row);
     setOpen(true);
   };
 
   const handleClose = () => {
+    setSelectedRow({});
     setOpen(false);
   };
 
-  const handleEdit = async () => {
-    return;
-  };
+  const handleEdit = (row) => {
+    handleOpen(row);
+  }
 
-  const handleCreate = async () => {
-    return;
+  const handleRequest = async (formInputs) => {
+    if (selectedRow.hasOwnProperty('id')) {
+      await tablePageApiService.put(selectedRow.id, formInputs);
+    } else {
+      await tablePageApiService.post(formInputs);
+    }
+    fetchData();
+    handleClose();
   }
 
   const actions = setActionHandlers(initialActions, [handleEdit, handleDelete]);
@@ -53,11 +66,12 @@ const TablePage = ({ columns, apiBasePath }) => {
       <Button onClick={handleOpen} variant='contained' sx={{ m: 1 }}>
         Add new
       </Button>
-        <CreationForm
-          columns={columns.filter((column) => column.label !== 'Actions')}
-          onCreate={handleCreate}
+        <BasicForm
+          columns={filteredColumns}
+          onRequest={handleRequest}
           open={open}
           onDialogClose={handleClose}
+          selectedRow={selectedRow}
         />
         <BasicTable columns={columns} rows={rows} actions={actions} />
       </Box>

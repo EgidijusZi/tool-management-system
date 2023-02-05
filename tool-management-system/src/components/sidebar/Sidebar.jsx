@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import { useState, useEffect, React } from 'react';
 import { sidebarData } from './SidebarData';
 import { Menu, MenuItem } from 'react-pro-sidebar';
 import { Sidebar as SidebarMenu } from 'react-pro-sidebar';
@@ -7,7 +7,11 @@ import { Box } from '@mui/material';
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [selectedMenuItem, setSelectedMenuItem] = useState(sidebarData[0].title);
+  const [selectedMenuItem, setSelectedMenuItem] = useState(localStorage.getItem('selectedMenuItem') || sidebarData[0].title);
+
+  useEffect(() => {
+    localStorage.setItem('selectedMenuItem', selectedMenuItem)
+  }, [selectedMenuItem]);
 
   const handleClick = (menuRow) => {
     setSelectedMenuItem(menuRow.title);

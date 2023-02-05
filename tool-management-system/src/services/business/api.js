@@ -17,8 +17,9 @@ export const apiService = endpoint => {
         fetchById: id => axios.get(url + id),
         delete: id => axios.delete(url + id),
         put: (id, updatedForm) => axios.put(url + id, updatedForm),
-        postAircraft: newAircraftForm => axios.post(url, newAircraftForm),
-        postToolbox: newToolboxForm => axios.post(url, newToolboxForm),
-        postUser: newUser => axios.post(url, newUser),
-    }
+        //postAircraft: newAircraftForm => axios.post(url, newAircraftForm),
+        //postToolbox: newToolboxForm => axios.post(url, newToolboxForm),
+        //postUser: newUser => axios.post(url, newUser),
+        post: newForm => axios.post(url, newForm),
+        }
 }
