@@ -6,7 +6,8 @@ export const endPoints = {
     aircrafts: 'Aircraft',
     toolboxes: 'Toolbox',
     users: 'User',
-    tools: 'Tool'
+    tools: 'Tool',
+    login: 'User/Authenticate'
 }
 
 export const apiService = endpoint => {
@@ -20,6 +21,6 @@ export const apiService = endpoint => {
         //postAircraft: newAircraftForm => axios.post(url, newAircraftForm),
         //postToolbox: newToolboxForm => axios.post(url, newToolboxForm),
         //postUser: newUser => axios.post(url, newUser),
-        post: newForm => axios.post(url, newForm),
+        post: form => axios.post(url, form)
         }
 }
