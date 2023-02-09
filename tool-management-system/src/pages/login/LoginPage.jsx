@@ -10,6 +10,8 @@ import { Box } from '@mui/system';
 import Centering from './Centering';
 import useAuthContext from '../../hooks/AuthContext'
 import { useState } from 'react';
+import { homePath } from '../../constants/routes';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
 

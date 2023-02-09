@@ -40,7 +40,6 @@ function App() {
           <Route path={toolsPath} element={<TablePage columns={toolColumns} apiBasePath={'Tool'}/>} />
           <Route path={aircraftsPath} element={<TablePage columns={aircraftColumns} apiBasePath={'Aircraft'} />} />
           <Route path={toolboxesPath} element={<TablePage columns={toolboxColumns} apiBasePath={'Toolbox'} />} />
-          <Route path={loginPath} element={<LoginPage/>}/>
         </Routes>
       </main>
     </div>
