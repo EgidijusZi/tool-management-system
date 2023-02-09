@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToolManagementSystem.Infrastructure.Data;
 
@@ -10,9 +11,11 @@ using ToolManagementSystem.Infrastructure.Data;
 namespace ToolManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ToolStoreDbContext))]
-    partial class ToolStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230209165816_ModifyingToolEntity")]
+    partial class ModifyingToolEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,7 +60,7 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -124,7 +127,9 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                 {
                     b.HasOne("ToolManagementSystem.Domain.Entities.User", "User")
                         .WithMany("UsedTools")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

@@ -10,6 +10,7 @@ namespace ToolManagementSystem.Domain.Entities
         public string ThreeLetterCode { get; set; }
         public string Email { get; set; }
         public Role Role { get; set; }
+        public virtual ICollection<Tool> UsedTools { get; set; }
         [JsonIgnore]
         public string PasswordHash { get; set; }
     }

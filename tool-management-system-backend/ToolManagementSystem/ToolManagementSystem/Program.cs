@@ -25,6 +25,8 @@ builder.Services.AddScoped<IAircraftService, AircraftService>();
 builder.Services.AddScoped<IAircraftRepository, AircraftRepository>();
 builder.Services.AddScoped<IToolboxRepository, ToolboxRepository>();
 builder.Services.AddScoped<IToolboxService, ToolboxService>();
+builder.Services.AddScoped<IToolRepository, ToolRepository>();
+builder.Services.AddScoped<IToolService, ToolService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();

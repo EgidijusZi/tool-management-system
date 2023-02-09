@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using ToolManagementSystem.Core.Responses;
 using ToolManagementSystem.Domain.Entities;
 
 namespace ToolManagementSystem.Core.Authorization
@@ -20,7 +21,7 @@ namespace ToolManagementSystem.Core.Authorization
             if (allowAnonymous)
                 return;
 
-            var user = (User)context.HttpContext.Items["User"];
+            var user = (UserResponseDto)context.HttpContext.Items["User"];
             if (user == null || (_roles.Any() && !_roles.Contains(user.Role)))
             {
                 context.Result = new JsonResult (new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
