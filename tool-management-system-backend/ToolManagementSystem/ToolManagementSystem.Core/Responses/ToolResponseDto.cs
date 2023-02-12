@@ -5,5 +5,6 @@
         public Guid Id { get; set; }
         public string ToolDescription { get; set; }
         public string ToolMarking { get; set; }
+        public UserResponseDto User { get; set; }
     }
 }
