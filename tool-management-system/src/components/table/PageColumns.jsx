@@ -6,22 +6,22 @@ export const aircraftColumns = [
 ];
 
 export const toolboxColumns = [
-    { id: 'toolboxMarking', label: 'Toolbox Marking' },
-    { id: 'owner', label: 'Owner' },
-    { id: 'actions', label: 'Actions'},
-  ];
+  { id: 'toolboxMarking', label: 'Toolbox Marking' },
+  { id: 'owner', label: 'Owner' },
+  { id: 'actions', label: 'Actions' },
+];
 
 export const toolColumns = [
-    { id: 'toolDescription', label: 'Tool Description'},
-    { id: 'toolMarking', label: 'Tool Marking' },
-    { id: 'usedBy', label: 'Used By' },
-    { id: 'actions', label: 'Actions'},
-]
+  { id: 'toolDescription', label: 'Tool Description' },
+  { id: 'toolMarking', label: 'Tool Marking' },
+  { id: 'usedBy', label: 'Used By' },
+  { id: 'actions', label: 'Actions' },
+];
 
 export const userColumns = [
-  { id: 'firstName', label: 'First Name'},
+  { id: 'firstName', label: 'First Name' },
   { id: 'lastName', label: 'Last Name' },
   { id: 'threeLettersCode', label: 'Three Letters Code' },
-  { id: 'email', label: 'Email'},
-  { id: 'actions', label: 'Actions'},
-]
+  { id: 'email', label: 'Email' },
+  { id: 'actions', label: 'Actions' },
+];

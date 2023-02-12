@@ -13,18 +13,35 @@ export const endPoints = {
 export const apiService = (endpoint) => {
   let url = baseUrl + '/Api/' + endpoint + '/';
   return {
-    fetchAll: () => axios.get(url),
+    fetchAll: (token) => axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
     fetchById: (id, token) =>
       axios.get(url + id, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       }),
-    delete: (id) => axios.delete(url + id),
-    put: (id, updatedForm) => axios.put(url + id, updatedForm),
+    delete: (id, token) => axios.delete(url + id, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    put: (id, updatedForm, token) => axios.put(url + id, updatedForm, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
     //postAircraft: newAircraftForm => axios.post(url, newAircraftForm),
     //postToolbox: newToolboxForm => axios.post(url, newToolboxForm),
     //postUser: newUser => axios.post(url, newUser),
-    post: (form) => axios.post(url, form),
+    post: (form, token) => axios.post(url, form, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    postLogin: (form) => axios.post(url, form),
   };
 };

@@ -14,19 +14,18 @@ const BasicForm = ({
   open,
   onDialogClose,
 }) => {
-
   const [formInputs, setFormInputs] = useState({});
 
   useEffect(() => {
     let initialFormState = selectedRow
-    ? columns.reduce((accumulator, column) => {
-        return { ...accumulator, [column.id]: selectedRow[column.id] };
-      }, {})
-    : columns.reduce((accumulator, column) => {
-        return { ...accumulator, [column.id]: '' };
-      }, {})
+      ? columns.reduce((accumulator, column) => {
+          return { ...accumulator, [column.id]: selectedRow[column.id] };
+        }, {})
+      : columns.reduce((accumulator, column) => {
+          return { ...accumulator, [column.id]: '' };
+        }, {});
     setFormInputs(initialFormState);
-  }, [selectedRow])
+  }, [selectedRow]);
 
   const handleChange = (event, id) => {
     setFormInputs({ ...formInputs, [id]: event.target.value });

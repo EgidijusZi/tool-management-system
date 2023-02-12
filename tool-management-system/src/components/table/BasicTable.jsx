@@ -53,7 +53,8 @@ export const BasicTable = ({ columns, rows, actions }) => {
                           <TableCell key={column.id + column.label}>
                             {actions.map((action) => {
                               return (
-                                <Button key={action.title}
+                                <Button
+                                  key={action.title}
                                   onClick={() => action.eventHandler(row)}
                                 >
                                   {action.icon}
@@ -64,7 +65,10 @@ export const BasicTable = ({ columns, rows, actions }) => {
                         );
                       } else {
                         return (
-                          <TableCell key={column.id + column.label} align={'left'}>
+                          <TableCell
+                            key={column.id + column.label}
+                            align={'left'}
+                          >
                             {value}
                           </TableCell>
                         );

@@ -5,24 +5,22 @@ import {
   CardContent,
   TextField,
   Typography,
+  FormHelperText,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import Centering from './Centering';
-import useAuthContext from '../../hooks/AuthContext'
+import useAuthContext from '../../hooks/AuthContext';
 import { useState } from 'react';
-import { homePath } from '../../constants/routes';
-import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { login } = useAuthContext();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login, error } = useAuthContext();
 
   const handleLogin = async (event) => {
     event.preventDefault();
     login({ email, password });
-  }
+  };
 
   return (
     <Centering>
@@ -40,8 +38,29 @@ const LoginPage = () => {
             }}
           >
             <form noValidate autoComplete='off'>
-              <TextField label='Email' name='email' variant='outlined' type='text' onChange={(event) => {setEmail(event.target.value)}} />
-              <TextField label='Password' name='password' variant='outlined' type='password' onChange={(event) => {setPassword(event.target.value)}} />
+              <TextField
+                label='Email'
+                name='email'
+                variant='outlined'
+                type='text'
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+              />
+              <TextField
+                label='Password'
+                name='password'
+                variant='outlined'
+                type='password'
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+              />
+              {error && (
+                <FormHelperText error sx={{textAlign: 'center', mb: 1}}>
+                  {error}
+                </FormHelperText>
+              )}
               <Button
                 sx={{ width: '90%' }}
                 type='submit'
