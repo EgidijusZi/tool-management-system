@@ -11,7 +11,8 @@ namespace ToolManagementSystem.Infrastructure.Data.Configurations
 
             builder.HasOne(d => d.User)
                 .WithMany(p => p.UsedTools)
-                .HasForeignKey(d => d.UserId);
+                .HasForeignKey(d => d.TakenById)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

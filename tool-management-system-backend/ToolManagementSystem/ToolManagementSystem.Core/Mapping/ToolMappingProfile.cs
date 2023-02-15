@@ -9,8 +9,11 @@ namespace ToolManagementSystem.Core.Mapping
     {
         public ToolMappingProfile()
         {
+            CreateMap<Tool, ToolCreationResponseDto>();
+            CreateMap<ToolCreationRequestDto, Tool>();
+            CreateMap<Tool, ToolPickupResponseDto>();
+            CreateMap<ToolPickupRequestDto, Tool>();
             CreateMap<Tool, ToolResponseDto>();
-            CreateMap<ToolRequestDto, Tool>();
         }
     }
 

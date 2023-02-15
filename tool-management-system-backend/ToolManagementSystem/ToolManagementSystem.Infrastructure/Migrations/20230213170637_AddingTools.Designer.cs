@@ -11,7 +11,7 @@ using ToolManagementSystem.Infrastructure.Data;
 namespace ToolManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ToolStoreDbContext))]
-    [Migration("20230209164508_AddingTools")]
+    [Migration("20230213170637_AddingTools")]
     partial class AddingTools
     {
         /// <inheritdoc />
@@ -49,6 +49,10 @@ namespace ToolManagementSystem.Infrastructure.Migrations
             modelBuilder.Entity("ToolManagementSystem.Domain.Entities.Tool", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("TakenById")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ToolDescription")
@@ -60,6 +64,8 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TakenById");
 
                     b.ToTable("Tools");
                 });
@@ -121,9 +127,8 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                 {
                     b.HasOne("ToolManagementSystem.Domain.Entities.User", "User")
                         .WithMany("UsedTools")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TakenById")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
                 });

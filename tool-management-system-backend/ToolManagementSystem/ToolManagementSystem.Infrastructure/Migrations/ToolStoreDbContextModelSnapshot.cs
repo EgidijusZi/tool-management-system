@@ -49,6 +49,9 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid?>("TakenById")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ToolDescription")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -57,12 +60,9 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("TakenById");
 
                     b.ToTable("Tools");
                 });
@@ -124,7 +124,8 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                 {
                     b.HasOne("ToolManagementSystem.Domain.Entities.User", "User")
                         .WithMany("UsedTools")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("TakenById")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
                 });

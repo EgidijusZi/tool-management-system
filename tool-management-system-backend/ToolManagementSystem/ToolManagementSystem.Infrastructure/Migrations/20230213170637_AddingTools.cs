@@ -16,6 +16,7 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    TakenById = table.Column<Guid>(type: "TEXT", nullable: true),
                     ToolDescription = table.Column<string>(type: "TEXT", nullable: false),
                     ToolMarking = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -23,12 +24,17 @@ namespace ToolManagementSystem.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Tools", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tools_Users_Id",
-                        column: x => x.Id,
+                        name: "FK_Tools_Users_TakenById",
+                        column: x => x.TakenById,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tools_TakenById",
+                table: "Tools",
+                column: "TakenById");
         }
 
         /// <inheritdoc />

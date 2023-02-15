@@ -5,13 +5,14 @@ namespace ToolManagementSystem.Core.Interfaces
 {
     public interface IToolService
     {
+        ToolPickupResponseDto PickUp(ToolPickupRequestDto request);
         IEnumerable<ToolResponseDto> GetAll();
 
         ToolResponseDto GetById(Guid id);
 
-        ToolResponseDto Create(ToolRequestDto request);
+        ToolResponseDto Create(ToolCreationRequestDto request);
 
-        ToolResponseDto Update(Guid id, ToolRequestDto request);
+        ToolResponseDto Update(Guid id, ToolCreationRequestDto request);
 
         void Delete(Guid id);
     }

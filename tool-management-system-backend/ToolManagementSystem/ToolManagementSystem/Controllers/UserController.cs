@@ -5,7 +5,7 @@ using ToolManagementSystem.Core.Requests;
 
 namespace ToolManagementSystem.Api.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class UserController : BaseController
     {
         private readonly IUserService _userService;

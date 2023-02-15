@@ -18,6 +18,22 @@ namespace ToolManagementSystem.Core.Services
             _mapper = mapper;
         }
 
+        public ToolPickupResponseDto PickUp(ToolPickupRequestDto request)
+        {
+            var tool = _toolRepository.GetById(request.Id);
+
+            if (tool is null)
+            {
+                throw new AppException("Tool with provided id does not exist");
+            }
+
+            tool.TakenById = request.TakenById;
+            var pickedTool = _mapper.Map<Tool>(tool);
+            _toolRepository.Update(pickedTool);
+            var response = _mapper.Map<ToolPickupResponseDto>(pickedTool);
+            return response;
+        }
+
         public IEnumerable<ToolResponseDto> GetAll()
         {
             var tools = _toolRepository.GetAll();
@@ -26,7 +42,7 @@ namespace ToolManagementSystem.Core.Services
             return toolsDtoList;
         }
 
-        public ToolResponseDto Create(ToolRequestDto request)
+        public ToolResponseDto Create(ToolCreationRequestDto request)
         {
             var requestTool = _mapper.Map<Tool>(request);
             var createdTool = _toolRepository.Create(requestTool);
@@ -48,7 +64,7 @@ namespace ToolManagementSystem.Core.Services
             return response;
         }
 
-        public ToolResponseDto Update(Guid id, ToolRequestDto request)
+        public ToolResponseDto Update(Guid id, ToolCreationRequestDto request)
         {
             var tool = _toolRepository.GetById(id);
             if (tool is null)

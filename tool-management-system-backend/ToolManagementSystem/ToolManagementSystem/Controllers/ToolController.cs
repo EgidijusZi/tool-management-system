@@ -12,8 +12,15 @@ namespace ToolManagementSystem.Api.Controllers
             _toolService = toolService;
         }
 
+        [HttpPost("Pickup")]
+        public IActionResult PickUp(ToolPickupRequestDto request)
+        {
+            _toolService.PickUp(request);
+            return Ok(new { message = "Succesfully taken" });
+        }
+
         [HttpPost]
-        public IActionResult Create(ToolRequestDto request)
+        public IActionResult Create(ToolCreationRequestDto request)
         {
             _toolService.Create(request);
             return Ok(new { message = "Created successfully" });
@@ -34,7 +41,7 @@ namespace ToolManagementSystem.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public IActionResult Update(Guid id, ToolRequestDto request)
+        public IActionResult Update(Guid id, ToolCreationRequestDto request)
         {
             _toolService.Update(id, request);
             return Ok(new { message = "Tool updated successfully" });
