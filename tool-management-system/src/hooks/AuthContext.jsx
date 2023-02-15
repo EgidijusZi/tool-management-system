@@ -17,11 +17,12 @@ export const AuthProvider = ({ children }) => {
 
   const getUser = async (id, token) => {
     const data = await userApiService.fetchById(id, token);
-    const userWithRole = {
+    const userWithRoleAndToken = {
       ...data.data,
+      token: token,
       role: roleMap[data.data.role]
     };
-    setUser(userWithRole);
+    setUser(userWithRoleAndToken);
   };
 
   const login = async ({ ...data }) => {
@@ -30,6 +31,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('user', JSON.stringify(userData.data));
       getUser(userData.data.id, userData.data.token);
       navigate(homePath);
+      setError();
     } catch (error) {
       if (error.response.status === 400) {
         setError(error.response.data.message);

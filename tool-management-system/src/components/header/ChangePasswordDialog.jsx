@@ -13,7 +13,7 @@ const ChangePasswordDialog = ({ open, onDialogClose }) => {
     if (password.newPassword !== password.confirmNewPassword) {
       setError('New password and confirm new password do not match');
     } else {
-      // Perform password change logic here
+      // Perform password change logic here, api call with form...
       setError('');
       setPassword('');
       onDialogClose();

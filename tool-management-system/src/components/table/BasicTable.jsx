@@ -9,6 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import { roleMap } from '../helpers/RoleMap';
 
 export const BasicTable = ({ columns, rows, actions }) => {
   const [page, setPage] = useState(0);
@@ -64,6 +65,16 @@ export const BasicTable = ({ columns, rows, actions }) => {
                           </TableCell>
                         );
                       } else {
+                        if (column.id === 'role') {
+                          return (
+                            <TableCell
+                              key={column.id + column.label}
+                              align={'left'}
+                            >
+                              {roleMap[value]}
+                            </TableCell>
+                          );
+                        }
                         return (
                           <TableCell
                             key={column.id + column.label}

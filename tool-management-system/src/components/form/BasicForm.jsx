@@ -1,10 +1,17 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
+import { roleMap } from './../helpers/RoleMap';
 import {
+
+
   Button,
   Dialog,
   DialogActions,
   DialogContent,
+  Select,
   TextField,
+  FormControl,
+  MenuItem,
+  InputLabel
 } from '@mui/material';
 
 const BasicForm = ({
@@ -15,6 +22,7 @@ const BasicForm = ({
   onDialogClose,
 }) => {
   const [formInputs, setFormInputs] = useState({});
+  const [role, setRole] = useState('')
 
   useEffect(() => {
     let initialFormState = selectedRow
@@ -28,6 +36,7 @@ const BasicForm = ({
   }, [selectedRow]);
 
   const handleChange = (event, id) => {
+    setRole(event.target.value)
     setFormInputs({ ...formInputs, [id]: event.target.value });
   };
 
@@ -41,6 +50,23 @@ const BasicForm = ({
       <Dialog open={open} onClose={onDialogClose}>
         <DialogContent>
           {columns.map((column) => {
+            if (column.id === 'role') {
+              return (
+                <FormControl fullWidth sx={{mt: 2}}>
+                  <InputLabel id={column.id}>Role</InputLabel>
+                  <Select
+                    key={column.id}
+                    label={column.label}
+                    value={role}
+                    onChange={handleChange}
+                  >
+                    <MenuItem value='Manager'>Manager</MenuItem>
+                    <MenuItem value='Storekeeper'>Storekeeper</MenuItem>
+                    <MenuItem value='Engineer'>Engineer</MenuItem>
+                  </Select>
+                </FormControl>
+              );
+            }
             return (
               <TextField
                 key={column.id}

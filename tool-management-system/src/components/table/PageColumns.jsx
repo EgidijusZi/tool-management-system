@@ -23,5 +23,6 @@ export const userColumns = [
   { id: 'lastName', label: 'Last Name' },
   { id: 'threeLettersCode', label: 'Three Letters Code' },
   { id: 'email', label: 'Email' },
+  { id: 'role', label: 'Role'},
   { id: 'actions', label: 'Actions' },
 ];
