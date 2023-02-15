@@ -34,6 +34,13 @@ namespace ToolManagementSystem.Core.Services
             return response;
         }
 
+        public IEnumerable<ToolResponseDto> GetAllTakenTools()
+        {
+            var takenTools = _toolRepository.GetAllTakenTools();
+            var takenToolsDtoList = takenTools.Select(tool => _mapper.Map<ToolResponseDto>(tool));
+            return takenToolsDtoList;
+        }
+
         public IEnumerable<ToolResponseDto> GetAll()
         {
             var tools = _toolRepository.GetAll();

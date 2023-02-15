@@ -34,7 +34,20 @@ namespace ToolManagementSystem.Infrastructure.Repositories
             _dbContext.Tools.Remove(tool);
             _dbContext.SaveChanges();
         }
+        public IEnumerable<Tool> GetAllTakenTools()
+        {
+            var takenTools = new List<Tool>();
+            foreach (var tool in _dbContext.Tools)
+            {
+                if (tool.User is not null)
+                {
+                    takenTools.Add(tool);
+                }
+            }
 
+            return takenTools;
+
+        }
         public IEnumerable<Tool> GetAll()
         {
             var tools = _dbContext.Tools.ToList();

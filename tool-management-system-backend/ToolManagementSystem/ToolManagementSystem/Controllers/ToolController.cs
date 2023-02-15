@@ -26,6 +26,13 @@ namespace ToolManagementSystem.Api.Controllers
             return Ok(new { message = "Created successfully" });
         }
 
+        [HttpGet("Taken")]
+        public IActionResult GetAllTakenTools()
+        {
+            var takenTools = _toolService.GetAllTakenTools();
+            return Ok(takenTools);
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {

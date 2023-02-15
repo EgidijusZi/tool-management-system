@@ -9,6 +9,7 @@ namespace ToolManagementSystem.Core.Interfaces
 {
     public interface IToolRepository
     {
+        IEnumerable<Tool> GetAllTakenTools();
         IEnumerable<Tool> GetAll();
 
         Tool GetById(Guid id);

@@ -7,6 +7,7 @@ namespace ToolManagementSystem.Core.Interfaces
     {
         ToolPickupResponseDto PickUp(ToolPickupRequestDto request);
         IEnumerable<ToolResponseDto> GetAll();
+        IEnumerable<ToolResponseDto> GetAllTakenTools();
 
         ToolResponseDto GetById(Guid id);
 

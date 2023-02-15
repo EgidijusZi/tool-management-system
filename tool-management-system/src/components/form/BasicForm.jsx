@@ -50,11 +50,12 @@ const BasicForm = ({
   };
 
   const getKeyByValue = (object, value) => {
-    return Object.keys(object).find(key => object[key] === value);
-  }
+    return Object.keys(object).find((key) => object[key] === value);
+  };
 
   const handleButtonClick = (event) => {
     event.preventDefault();
+    setRole('');
     onRequest(formInputs);
   };
 
@@ -66,9 +67,9 @@ const BasicForm = ({
             if (column.id === 'role') {
               return (
                 <FormControl fullWidth sx={{ mt: 2 }}>
-                  <InputLabel id={column.id}>Role</InputLabel>
+                  <InputLabel key={column.id} id={column.id}>Role</InputLabel>
                   <Select
-                    key={column.id}
+                    key={column.id + column.label}
                     label={column.label}
                     value={role}
                     onChange={(event) => handleChange(event, column.id)}

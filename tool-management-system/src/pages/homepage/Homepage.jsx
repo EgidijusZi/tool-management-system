@@ -1,27 +1,53 @@
 import React from 'react';
 import { AuthContext } from '../../hooks/AuthContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Box } from '@mui/system';
+import EngineerHomepage from './EngineerHomepage';
+import { endPoints } from '../../services/business/api';
+import { useState } from 'react';
+import { apiService } from '../../services/business/api';
+import { Typography } from '@mui/material';
 
 const Homepage = () => {
   const { user } = useContext(AuthContext);
-  if (user.role === 'Manager') {
+
+  const [takenTools, setTakenTools] = useState([]);
+
+  const toolApiService = apiService(endPoints.toolsTaken);
+
+  const fetchData = async () => {
+    const response = await toolApiService.fetchAll(user.token);
+    setTakenTools(response.data);
+    console.log(takenTools);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (user.role === 'Manager' || 'Storekeeper') {
     return (
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
           justifyContent: 'flex',
           width: '100%',
-          margin: 'auto',
-          fontSize: '36px',
-          fontFamily: 'monospace',
+          mt: 2,
+          
         }}
       >
-        WELCOME BACK TO TOOL MANAGEMENT SYSTEM
+        <Typography sx={{
+          ml: 1,
+          alignItems: 'left',
+          fontSize: '36px',
+          fontFamily: 'monospace',
+        }}>Currently taken tools:</Typography>
+        
       </Box>
     );
+  } else if (user.role === 'Engineer') {
+    return (<EngineerHomepage />)
   }
 };
 

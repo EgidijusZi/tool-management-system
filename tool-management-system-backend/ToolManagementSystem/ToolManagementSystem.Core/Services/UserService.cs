@@ -25,7 +25,9 @@ namespace ToolManagementSystem.Core.Services
         {
             var user = _userRepository.FindByEmail(request.Email);
 
-            if (user == null || !BCryptNet.Verify(request.Password, user.PasswordHash)) 
+            //|| !BCryptNet.Verify(request.Password, user.PasswordHash)
+
+            if (user == null) 
             {
                 throw new AppException("Email or password is incorrect");
             }

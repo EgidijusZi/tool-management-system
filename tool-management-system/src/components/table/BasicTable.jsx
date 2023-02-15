@@ -30,7 +30,7 @@ export const BasicTable = ({ columns, rows, actions }) => {
 
   return (
     <Paper sx={{ overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 1000 }}>
         <Table stickyHeader aria-label='sticky table'>
           <TableHead>
             <TableRow>

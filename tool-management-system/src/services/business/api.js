@@ -7,6 +7,7 @@ export const endPoints = {
   toolboxes: 'Toolbox',
   users: 'User',
   tools: 'Tool',
+  toolsTaken: 'Tool/Taken',
   login: 'User/Authenticate',
   register: 'User/Register'
 };
