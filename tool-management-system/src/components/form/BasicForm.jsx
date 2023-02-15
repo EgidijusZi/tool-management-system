@@ -34,9 +34,24 @@ const BasicForm = ({
   }, [selectedRow]);
 
   const handleChange = (event, id) => {
-    setRole(event.target.value);
-    setFormInputs({ ...formInputs, [id]: event.target.value });
+    if (id === 'role') {
+      if (['Manager', 'Storekeeper', 'Engineer'].includes(event.target.value)) {
+        setRole(event.target.value);
+        setFormInputs({
+          ...formInputs,
+          [id]: parseInt(getKeyByValue(roleMap, event.target.value)),
+        });
+      } else {
+        setRole('');
+      }
+    } else {
+      setFormInputs({ ...formInputs, [id]: event.target.value });
+    }
   };
+
+  const getKeyByValue = (object, value) => {
+    return Object.keys(object).find(key => object[key] === value);
+  }
 
   const handleButtonClick = (event) => {
     event.preventDefault();
@@ -56,7 +71,7 @@ const BasicForm = ({
                     key={column.id}
                     label={column.label}
                     value={role}
-                    onChange={handleChange}
+                    onChange={(event) => handleChange(event, column.id)}
                   >
                     <MenuItem value='Manager'>Manager</MenuItem>
                     <MenuItem value='Storekeeper'>Storekeeper</MenuItem>

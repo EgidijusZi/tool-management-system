@@ -66,7 +66,7 @@ namespace ToolManagementSystem.Core.Services
                 throw new AppException("Email '" + request.Email + "' is already taken");
             }
             var userRegisterRequest = _mapper.Map<User>(request);
-            userRegisterRequest.PasswordHash = BCryptNet.HashPassword(request.Password);
+            //userRegisterRequest.PasswordHash = BCryptNet.HashPassword(request.Password);
             var createdUser = _userRepository.Register(userRegisterRequest);
             var response = _mapper.Map<UserResponseDto>(createdUser);
 

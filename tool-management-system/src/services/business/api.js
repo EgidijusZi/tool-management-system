@@ -8,6 +8,7 @@ export const endPoints = {
   users: 'User',
   tools: 'Tool',
   login: 'User/Authenticate',
+  register: 'User/Register'
 };
 
 export const apiService = (endpoint) => {
@@ -47,5 +48,11 @@ export const apiService = (endpoint) => {
         },
       }),
     postLogin: (form) => axios.post(url, form),
+    postRegister: (form, token) =>
+      axios.post(url, form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
   };
 };

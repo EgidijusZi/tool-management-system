@@ -69,7 +69,8 @@ export const BasicTable = ({ columns, rows, actions }) => {
                             })}
                           </TableCell>
                         );
-                      } else if (column.id === 'user') {
+                      } 
+                      else if (column.id === 'user') {
                         return (
                           <TableCell
                             key={column.id + column.label}
@@ -78,7 +79,8 @@ export const BasicTable = ({ columns, rows, actions }) => {
                             {value.threeLetterCode}
                           </TableCell>
                         );
-                      } else {
+                      } 
+                      else {
                         if (column.id === 'role') {
                           return (
                             <TableCell

@@ -13,6 +13,6 @@ namespace ToolManagementSystem.Domain.Entities
         [JsonIgnore]
         public virtual ICollection<Tool> UsedTools { get; set; }
         [JsonIgnore]
-        public string PasswordHash { get; set; }
+        public string? PasswordHash { get; set; }
     }
 }

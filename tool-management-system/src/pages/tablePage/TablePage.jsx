@@ -1,5 +1,5 @@
 import React from 'react';
-import { apiService } from './../../services/business/api';
+import { apiService, endPoints } from './../../services/business/api';
 import { useState, useEffect } from 'react';
 import {
   actions as initialActions,
@@ -13,6 +13,7 @@ import { AuthContext } from '../../hooks/AuthContext';
 
 const TablePage = ({ columns, apiBasePath }) => {
   const tablePageApiService = apiService(apiBasePath);
+  const userRegisterApiService = apiService(endPoints.register);
 
   const [rows, setRows] = useState([]);
   const [open, setOpen] = useState(false);
@@ -28,7 +29,6 @@ const TablePage = ({ columns, apiBasePath }) => {
 
   const fetchData = async () => {
     const response = await tablePageApiService.fetchAll(user.token);
-    console.log(response.data);
     setRows(response.data);
   };
 
@@ -58,6 +58,8 @@ const TablePage = ({ columns, apiBasePath }) => {
   const handleRequest = async (formInputs) => {
     if (selectedRow.hasOwnProperty('id')) {
       await tablePageApiService.put(selectedRow.id, formInputs, user.token);
+    } else if (formInputs.hasOwnProperty('role')){
+      await userRegisterApiService.postRegister(formInputs, user.token)
     } else {
       await tablePageApiService.post(formInputs, user.token);
     }

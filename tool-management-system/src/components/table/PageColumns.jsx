@@ -14,7 +14,7 @@ export const toolboxColumns = [
 export const toolColumns = [
   { id: 'toolDescription', label: 'Tool Description' },
   { id: 'toolMarking', label: 'Tool Marking' },
-  { id: 'user', label: 'Used By' },
+  { id: 'user//', label: 'Used By' },
   { id: 'actions', label: 'Actions' },
 ];
 

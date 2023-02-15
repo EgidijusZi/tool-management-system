@@ -12,8 +12,7 @@ namespace ToolManagementSystem.Core.Requests
         [Required]
         public string ThreeLetterCode { get; set; }
         [Required]
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; } 
         public Role Role { get; set; }
     }
 }
