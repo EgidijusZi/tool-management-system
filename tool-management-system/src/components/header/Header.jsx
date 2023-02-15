@@ -13,7 +13,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const { signout } = useContext(AuthContext)
+  const { signout } = useContext(AuthContext);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +24,7 @@ const Header = () => {
 
   const handleMenuClose = () => {
     if (menuOpen) {
-      setMenuOpen(false)
+      setMenuOpen(false);
     }
   };
 
@@ -35,11 +35,11 @@ const Header = () => {
 
   const handleOpen = () => {
     setOpen(true);
-  }
+  };
 
   const handleClose = () => {
     setOpen(false);
-  }
+  };
 
   return (
     <Box
@@ -64,15 +64,15 @@ const Header = () => {
                   onClose={handleMenuClose}
                   anchorEl={anchorEl}
                 >
-                  <MenuItem onClick={handleOpen}>
-                    Change Password
-                  </MenuItem>
+                  <MenuItem onClick={handleOpen}>Change Password</MenuItem>
                   <MenuItem onClick={signout}>Signout</MenuItem>
                 </Menu>
               </Paper>
             </Stack>
           ) : null}
-          {open && <ChangePasswordDialog open={open} onDialogClose={handleClose} />}
+          {open && (
+            <ChangePasswordDialog open={open} onDialogClose={handleClose} />
+          )}
         </IconButton>
       </Box>
     </Box>

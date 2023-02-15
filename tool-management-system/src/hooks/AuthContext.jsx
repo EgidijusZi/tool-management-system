@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     const userWithRoleAndToken = {
       ...data.data,
       token: token,
-      role: roleMap[data.data.role]
+      role: roleMap[data.data.role],
     };
     setUser(userWithRoleAndToken);
   };
@@ -42,8 +42,8 @@ export const AuthProvider = ({ children }) => {
   const signout = async () => {
     localStorage.clear();
     setUser(null);
-    navigate(loginPath)
-  }
+    navigate(loginPath);
+  };
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }) => {
       getUser(userData.id, userData.token);
       navigate(localStorage.getItem('currentPath'));
     }
-  }, [])
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, login, signout, error }}>

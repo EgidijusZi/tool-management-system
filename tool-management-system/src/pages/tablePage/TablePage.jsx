@@ -28,6 +28,7 @@ const TablePage = ({ columns, apiBasePath }) => {
 
   const fetchData = async () => {
     const response = await tablePageApiService.fetchAll(user.token);
+    console.log(response.data);
     setRows(response.data);
   };
 
@@ -69,7 +70,12 @@ const TablePage = ({ columns, apiBasePath }) => {
   return (
     <>
       <Box>
-        <Button onClick={handleOpen} variant='contained' sx={{ m: 1 }}>
+        <Button
+          onClick={handleOpen}
+          variant='contained'
+          sx={{ m: 1 }}
+          disabled={user.role === 'Engineer'}
+        >
           Add new
         </Button>
         <BasicForm

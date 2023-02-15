@@ -5,10 +5,12 @@ export const actions = [
   {
     title: 'Edit',
     icon: <EditIcon />,
+    role: ['Manager', 'Storekeeper'],
   },
   {
     title: 'Delete',
     icon: <DeleteIcon />,
+    role: ['Manager', 'Storekeeper'],
   },
 ];
 

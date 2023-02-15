@@ -57,7 +57,7 @@ const LoginPage = () => {
                 }}
               />
               {error && (
-                <FormHelperText error sx={{textAlign: 'center', mb: 1}}>
+                <FormHelperText error sx={{ textAlign: 'center', mb: 1 }}>
                   {error}
                 </FormHelperText>
               )}

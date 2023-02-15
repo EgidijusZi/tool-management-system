@@ -1,8 +1,6 @@
 import { React, useState, useEffect, useContext } from 'react';
 import { roleMap } from './../helpers/RoleMap';
 import {
-
-
   Button,
   Dialog,
   DialogActions,
@@ -11,7 +9,7 @@ import {
   TextField,
   FormControl,
   MenuItem,
-  InputLabel
+  InputLabel,
 } from '@mui/material';
 
 const BasicForm = ({
@@ -22,7 +20,7 @@ const BasicForm = ({
   onDialogClose,
 }) => {
   const [formInputs, setFormInputs] = useState({});
-  const [role, setRole] = useState('')
+  const [role, setRole] = useState('');
 
   useEffect(() => {
     let initialFormState = selectedRow
@@ -36,7 +34,7 @@ const BasicForm = ({
   }, [selectedRow]);
 
   const handleChange = (event, id) => {
-    setRole(event.target.value)
+    setRole(event.target.value);
     setFormInputs({ ...formInputs, [id]: event.target.value });
   };
 
@@ -52,7 +50,7 @@ const BasicForm = ({
           {columns.map((column) => {
             if (column.id === 'role') {
               return (
-                <FormControl fullWidth sx={{mt: 2}}>
+                <FormControl fullWidth sx={{ mt: 2 }}>
                   <InputLabel id={column.id}>Role</InputLabel>
                   <Select
                     key={column.id}

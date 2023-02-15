@@ -16,7 +16,7 @@ const Homepage = () => {
           width: '100%',
           margin: 'auto',
           fontSize: '36px',
-          fontFamily: 'monospace'
+          fontFamily: 'monospace',
         }}
       >
         WELCOME BACK TO TOOL MANAGEMENT SYSTEM

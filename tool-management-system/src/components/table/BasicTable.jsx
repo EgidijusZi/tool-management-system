@@ -10,10 +10,14 @@ import TableRow from '@mui/material/TableRow';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import { roleMap } from '../helpers/RoleMap';
+import { useContext } from 'react';
+import { AuthContext } from '../../hooks/AuthContext';
 
 export const BasicTable = ({ columns, rows, actions }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const { user } = useContext(AuthContext);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -57,11 +61,21 @@ export const BasicTable = ({ columns, rows, actions }) => {
                                 <Button
                                   key={action.title}
                                   onClick={() => action.eventHandler(row)}
+                                  disabled={!action.role.includes(user.role)}
                                 >
                                   {action.icon}
                                 </Button>
                               );
                             })}
+                          </TableCell>
+                        );
+                      } else if (column.id === 'user') {
+                        return (
+                          <TableCell
+                            key={column.id + column.label}
+                            align={'left'}
+                          >
+                            {value.threeLetterCode}
                           </TableCell>
                         );
                       } else {

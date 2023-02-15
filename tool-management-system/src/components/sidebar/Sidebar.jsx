@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     localStorage.setItem('selectedMenuItem', selectedMenuItem);
-    localStorage.setItem('currentPath', window.location.pathname)
+    localStorage.setItem('currentPath', window.location.pathname);
   }, [selectedMenuItem]);
 
   const handleClick = (menuRow) => {
@@ -27,20 +27,24 @@ const Sidebar = () => {
     <Box sx={{ display: 'flex' }}>
       <SidebarMenu>
         <Menu>
-          {sidebarData.filter(menuRow => !menuRow.role || menuRow.role.includes(user.role)).map((menuRow) => {
-            return (
-              <MenuItem
-                key={menuRow.title}
-                onClick={() => {
-                  handleClick(menuRow);
-                }}
-                active={selectedMenuItem === menuRow.title}
-                icon={menuRow.icon}
-              >
-                {menuRow.title}
-              </MenuItem>
-            );
-          })}
+          {sidebarData
+            .filter(
+              (menuRow) => !menuRow.role || menuRow.role.includes(user.role)
+            )
+            .map((menuRow) => {
+              return (
+                <MenuItem
+                  key={menuRow.title}
+                  onClick={() => {
+                    handleClick(menuRow);
+                  }}
+                  active={selectedMenuItem === menuRow.title}
+                  icon={menuRow.icon}
+                >
+                  {menuRow.title}
+                </MenuItem>
+              );
+            })}
         </Menu>
       </SidebarMenu>
     </Box>
