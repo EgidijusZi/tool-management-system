@@ -5,7 +5,7 @@ export const baseUrl = 'https://localhost:7264';
 export const endPoints = {
   aircrafts: 'Aircraft',
   toolboxes: 'Toolbox',
-  users: 'User',
+  users:  'User',
   tools: 'Tool',
   toolsTaken: 'Tool/Taken',
   login: 'User/Authenticate',
@@ -13,7 +13,7 @@ export const endPoints = {
 };
 
 export const apiService = (endpoint) => {
-  let url = baseUrl + '/Api/' + endpoint + '/';
+  let url = baseUrl + '/Api/' + endpoint + '/'; //https://localhost:7264 + /Api/ + endpoint + /
   return {
     fetchAll: (token) =>
       axios.get(url, {
